@@ -1,0 +1,86 @@
+<style>
+label {
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    width: 20%;
+}
+dt {
+    width: 100%;
+}
+.left-side {
+    float: left;
+    width: 50%;
+}
+.right-side {
+    float: right;
+    width: 50%;
+}
+.full-width {
+    float: left;
+    width: 100%;
+}
+</style>
+
+<!-- start of actual content -->
+
+<h1>Online Market Posting</h1>
+<hr />
+
+<?php if ($this->flashMessenger()->hasMessages()) : ?>
+    <h3 style="color:red;">Messages</h3>
+    <?=  $this->htmlList($this->flashMessenger()->getMessages()); ?>
+    <h3 style="color:red;">Invalid Fields</h3>
+    Raw error messages coming directly from the validators, not the <em>Input</em> classes.
+    <ul>
+    <?php foreach ($this->postForm->getInputFilter()->getInvalidInput() as $input) : ?>
+        <li>
+            <?= $input->getName() . ':' ?>
+            <?php foreach ($input->getValidatorChain()->getValidators() as $chain) : ?>
+            <?php foreach ($chain as $validator) : ?>
+                <?php if ($validator && is_object($validator)) : ?>
+                <?php $error = $validator->getMessages(); ?>
+                    <?= implode(',', $error); ?>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            <?php endforeach; ?>
+        </li>
+    <?php endforeach; ?>
+    </ul>
+    <?=  '<hr />'  ?>
+<?php endif; ?>
+
+<?php $this->postForm->prepare(); ?>
+<?php echo $this->form()->openTag($this->postForm); ?>
+<div class="left-side">
+<dt><?= $this->unescapedLabel($this->postForm->get('category')); ?></dt>
+<dd><?= $this->formSelect($this->postForm->get('category')); ?><?= $this->formElementErrors($this->postForm->get('category')); ?></dd>
+<dt><?= $this->unescapedLabel($this->postForm->get('photo_filename')); ?></dt>
+<dd><?= $this->formText($this->postForm->get('photo_filename')); ?><?= $this->formElementErrors($this->postForm->get('photo_filename')); ?></dd>
+<dt><?= $this->unescapedLabel($this->postForm->get('cityCode')); ?></dt>
+<dd><?= $this->formText($this->postForm->get('cityCode')); ?><?= $this->formElementErrors($this->postForm->get('cityCode')); ?></dd>
+<dt><?= $this->unescapedLabel($this->postForm->get('contact_name')); ?></dt>
+<dd><?= $this->formText($this->postForm->get('contact_name')); ?><?= $this->formElementErrors($this->postForm->get('contact_name')); ?></dd>
+<dt><?= $this->unescapedLabel($this->postForm->get('delete_code')); ?></dt>
+<dd><?= $this->formText($this->postForm->get('delete_code')); ?><?= $this->formElementErrors($this->postForm->get('delete_code')); ?></dd>
+</div>
+<div class="right-side">
+<dt><?= $this->unescapedLabel($this->postForm->get('title')); ?></dt>
+<dd><?= $this->formText($this->postForm->get('title')); ?><?= $this->formElementErrors($this->postForm->get('title')); ?></dd>
+<dt><?= $this->unescapedLabel($this->postForm->get('price')); ?></dt>
+<dd><?= $this->formText($this->postForm->get('price')); ?><?= $this->formElementErrors($this->postForm->get('price')); ?></dd>
+<dt><?= $this->unescapedLabel($this->postForm->get('contact_phone')); ?></dt>
+<dd><?= $this->formText($this->postForm->get('contact_phone')); ?><?= $this->formElementErrors($this->postForm->get('contact_phone')); ?></dd>
+<dt><?= $this->unescapedLabel($this->postForm->get('contact_email')); ?></dt>
+<dd><?= $this->formEmail($this->postForm->get('contact_email')); ?><?= $this->formElementErrors($this->postForm->get('contact_email')); ?></dd>
+</div>
+<div class="full-width">
+<dt><?= $this->unescapedLabel($this->postForm->get('expires')); ?></dt>
+<dd><?= $this->formRadio($this->postForm->get('expires')); ?><?= $this->formElementErrors($this->postForm->get('expires')); ?></dd>
+<dt><?= $this->unescapedLabel($this->postForm->get('description')); ?></dt>
+<dd><?= $this->formTextarea($this->postForm->get('description')); ?><?= $this->formElementErrors($this->postForm->get('description')); ?></dd>
+<dt><?= $this->unescapedLabel($this->postForm->get('captcha')); ?></dt>
+<dd><?= $this->formCaptcha($this->postForm->get('captcha')); ?><?= $this->formElementErrors($this->postForm->get('captcha')); ?></dd>
+<p style="color:white;"><?= $this->formSubmit($this->postForm->get('submit')); ?></p>
+</div>
+<?php echo $this->form()->closeTag(); ?>
