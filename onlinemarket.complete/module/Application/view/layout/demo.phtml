@@ -40,7 +40,6 @@
                     <!-- //*** use the "navigation()" view helper instead of hard-coding menu items -->
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="<?= $this->url('market') ?>">Home</a></li>
-                        <li class="active"><a href="<?= $this->url('market/post') ?>">Post</a></li>
                     </ul>
                 </div>
             </div>
@@ -49,18 +48,7 @@
 
             <div class="row">
 
-                <div class="col-md-2">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Categories</h3>
-                        </div>
-                        <div class="panel-body">
-                            <?= $this->leftLinks($this->categories, $this->url('market/view/category')); ?>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-10">
+                <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <?= $this->content ?>

@@ -27,6 +27,11 @@ class IndexController extends AbstractActionController
     {
         return new ViewModel();
     }
+    public function demoAction()
+    {
+        $viewModel = new ViewModel();
+        return $viewModel;
+    }
     public function jsonAction()
     {
         return new JsonModel($this->testData);

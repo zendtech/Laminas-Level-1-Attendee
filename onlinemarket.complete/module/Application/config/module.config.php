@@ -6,12 +6,12 @@
  */
 
 namespace Application;
+use Application\Controller\IndexController;
 use Application\Controller\Factory\IndexControllerFactory;
 use Laminas\Router\Http\{Literal, Segment};
 use Laminas\View\Helper as ViewHelper;
 use Laminas\Form\View\Helper as FormHelper;
 use Laminas\ServiceManager\Factory\InvokableFactory;
-use Application\Controller\IndexController;
 
 return [
     'router' => [
@@ -32,7 +32,7 @@ return [
                     'route'    => '/application[/:action]',
                     'defaults' => [
                         'controller' => IndexController::class,
-                        'action'     => 'index',
+                        'action'     => 'demo',
                     ],
                 ],
             ],
@@ -66,18 +66,18 @@ return [
             ],
             'captcha-options' => [
                 'expiration' => 300,
-                'font'		=> __DIR__ . '/../../../public/fonts/FreeSansBold.ttf',
-                'fontSize'	=> 24,
-                'height'	=> 50,
-                'width'		=> 200,
-                'imgDir'	=> __DIR__ . '/../../../public/captcha',
-                'imgUrl'	=> '../../public/captcha',
+                'font'      => __DIR__ . '/../../../public/fonts/FreeSansBold.ttf',
+                'fontSize'  => 24,
+                'height'    => 50,
+                'width'     => 200,
+                'imgDir'    => __DIR__ . '/../../../public/captcha',
+                'imgUrl'    => '../../public/captcha',
             ],
         ],
     ],
     'controllers' => [
         'factories' => [
-            IndexController::class => IndexControllerFactory::class,
+            IndexController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [
@@ -97,6 +97,7 @@ return [
             __DIR__ . '/../view',
         ],
     ],
+    /*
     'view_helpers' => [
         'factories' => [
             Helper\LeftLinks::class => InvokableFactory::class,
@@ -141,4 +142,5 @@ return [
             'captcha/image' => FormHelper\Captcha\Image::class,
         ],
     ],
+    */
 ];
