@@ -1,6 +1,6 @@
 FROM asclinux/linuxforphp-8.2-ultimate:7.4-nts
 MAINTAINER doug@unlikelysource.com
-COPY index.html /tmp/
+COPY index.html /srv/www/index.html
 COPY zfcourse.sql /tmp/
 COPY phpmyadmin_install.sh /tmp/
 COPY init.sh /tmp/
