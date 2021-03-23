@@ -3,3 +3,26 @@ $layout = $this->layout();
 $layout->setTemplate('layout/demo');
 ?>
 <h1>Online Market</h1>
+<?php $categories = [
+    'barter',
+    'beauty',
+    'clothing',
+    'computer',
+    'entertainment',
+    'free',
+    'garden',
+    'general',
+    'health',
+    'household',
+    'phones',
+    'property',
+    'sporting',
+    'tools',
+    'transportation',
+    'wanted'
+]; ?>
+<ul>
+<?php foreach ($categories as $item) : ?>
+    <li><?= $item ?></li>
+<?php endforeach; ?>
+</ul>

@@ -8,12 +8,16 @@ use Laminas\EventManager\EventManagerInterface;
 class GuestbookService
 {
     const TABLE_NAME = 'guestbook',
-        IDENTIFIER = 'guestbook-service',
-        EVENT_PRE_INSERT  = 'guestbook-service-pre-insert',
-        EVENT_POST_INSERT = 'guestbook-service-post-insert';
+          IDENTIFIER = 'guestbook-service',
+          EVENT_PRE_INSERT  = 'guestbook-service-pre-insert',
+          EVENT_POST_INSERT = 'guestbook-service-post-insert';
+
     protected $table, $adapter, $eventManager;
 
-    public function __construct(AdapterInterface $adapter, EventManagerInterface $eventManager, TableGatewayInterface $tableGateway)
+    public function __construct(
+        protected AdapterInterface $adapter,
+        protected EventManagerInterface $eventManager,
+        protected TableGatewayInterface $tableGateway)
     {
         $this->adapter = $adapter;
         $this->eventManager = $eventManager;
