@@ -4,6 +4,13 @@ COPY index.html /srv/www/index.html
 COPY zfcourse.sql /tmp/
 COPY phpmyadmin_install.sh /tmp/
 COPY init.sh /tmp/
+COPY reset_perms.sh /tmp/
+RUN \
+    echo "Installing Composer ..." && \
+    cd /tmp && \
+    wget https://getcomposer.org/composer.phar && \
+    mv /tmp/composer.phar /usr/local/bin/composer && \
+    chmod +x /usr/local/bin/composer
 RUN \
     echo "Creating sample database and assigning permissions ..." && \
     /etc/init.d/mysql start && \
