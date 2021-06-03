@@ -51,6 +51,7 @@ docker container ls
 ### Access the Container's Web Server
 * Open a browser from your local computer
 * Open this URL: `http://localhost:8888/`
+* Or: `http://10.10.10.10/`
 
 ### Stop the Course Container
 * Open a terminal window / command prompt
@@ -94,3 +95,4 @@ docker system prune
 * doug@unlikelysource.com: initial check-in
   * Updated all ZF apps to Laminas
   * Added Docker infrastructure
+### 0.0.2 : Done (for now)

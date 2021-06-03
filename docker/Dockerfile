@@ -5,6 +5,7 @@ COPY zfcourse.sql /tmp/
 COPY phpmyadmin_install.sh /tmp/
 COPY init.sh /tmp/
 COPY reset_perms.sh /tmp/
+COPY httpd-laminas-1.conf /etc/httpd/extra
 RUN \
     echo "Installing Composer ..." && \
     cd /tmp && \
@@ -25,4 +26,17 @@ RUN \
     echo "Installing phpMyAdmin ..." && \
     chmod +x /tmp/*.sh && \
     /tmp/phpmyadmin_install.sh
+RUN \
+    echo "Installing Composer globally ..." && \
+    cd /tmp && \
+    rm -f composer.* && \
+    rm -f /usr/bin/composer && \
+    wget https://getcomposer.org/download/latest-stable/composer.phar && \
+    mv composer.phar /usr/bin/composer && \
+    chmod +x /usr/bin/composer
+RUN \
+    echo "Setting PHP for development ..." && \
+    echo "error_reporting=E_ALL ^ E_DEPRECATED" >>/etc/php.ini && \
+    echo "display_errors=on" >>/etc/php.ini && \
+    /etc/init.d/php-fpm restart
 CMD /tmp/init.sh
