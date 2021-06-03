@@ -88,6 +88,13 @@ docker system prune
 * If you get a message saying that `port 8888` is already in use, stop any running containers, and restart this one
   * If you still get the message, modify the `docker-compose.yml` file and change the port from `8888` to something else (e.g. try `9999`)
 
+## Database Access
+Username: `laminas`
+Password: `password`
+To access phpMyAdmin (from your host computer browser):
+* `http://localhost:8888/phpmyadmin`, or
+* `http://10.10.10.10/phpmyadmin`
+
 
 ## Version History
 
