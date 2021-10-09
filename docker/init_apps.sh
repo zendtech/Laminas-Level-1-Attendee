@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
-if [[ ! -d /home/guestbook/vendor ]]; then
-    /tmp/init_apps.sh
-fi
+echo "Installing Guestbook ..."
+cd /home/guestbook
+composer install --ignore-platform-reqs
+
+echo "Installing Onlinemarket Complete ..."
+cd /home/onlinemarket.complete
+composer install --ignore-platform-reqs
 
 echo "Setting permissions ..."
 chmod +x /tmp/*.sh
@@ -15,4 +19,3 @@ echo "Initializing MySQL, PHP-FPM and Apache ... "
 /etc/init.d/php-fpm start
 /etc/init.d/httpd start
 
-lfphp --mysql --phpfpm --apache >/dev/null 2&>1

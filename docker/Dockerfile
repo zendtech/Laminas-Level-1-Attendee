@@ -5,7 +5,9 @@ COPY zfcourse.sql /tmp/
 COPY phpmyadmin_install.sh /tmp/
 COPY init.sh /tmp/
 COPY reset_perms.sh /tmp/
+COPY init_apps.sh /tmp
 COPY httpd-laminas-1.conf /etc/httpd/extra
+RUN chmod +x /tmp/*.sh
 RUN \
     echo "Installing Composer ..." && \
     cd /tmp && \

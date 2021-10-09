@@ -49,6 +49,14 @@ docker-compose up -d
 docker container ls
 ```
 
+### Initialize Course Container Software
+* Open a terminal window / command prompt
+* Change directory to `/path/to/course/Laminas-Level-1-Attendee`
+* Execute this command:
+```
+docker exec laminas_1 /bin/bash -c "/tmp/init_apps.sh"
+```
+
 ### Access the Container's Web Server
 * Open a browser from your local computer
 * Open this URL: `http://localhost:8888/`

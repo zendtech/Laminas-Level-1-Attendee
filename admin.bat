@@ -1,8 +1,8 @@
 @echo off
-SET USAGE="Usage: init.sh up|down|build|ls|shell"
+SET USAGE="Usage: admin up|down|build|ls|init|shell"
 SET CONTAINER="laminas_1"
 
-IF "%~1"=="" GOTO :usage
+IF "%~1"=="" GOTO :message
 
 IF "%1"=="up" GOTO :up
 IF "%1"=="start" GOTO :up
@@ -25,7 +25,7 @@ GOTO:EOF
 IF "%1"=="build" GOTO :build
 GOTO :opt4
 :build
-docker-compose build %2
+docker-compose build --force-rm --no-cache
 GOTO:EOF
 
 :opt4
@@ -37,15 +37,22 @@ GOTO:EOF
 
 :opt5
 IF "%1"=="shell" GOTO :shell
-GOTO :done
+GOTO :opt6
 :shell
 docker exec -it %CONTAINER% /bin/bash
+GOTO:EOF
+
+:opt6
+IF "%1"=="init" GOTO :init
+GOTO :done
+:init
+docker exec %CONTAINER% /bin/bash -c "/tmp/init_apps.sh"
 GOTO:EOF
 
 :done
 echo "Done"
 
-:usage
+:message
 echo %USAGE%
 echo "You entered %1 and %1"
 GOTO:EOF
