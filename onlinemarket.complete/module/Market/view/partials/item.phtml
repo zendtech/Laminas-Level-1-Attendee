@@ -29,7 +29,7 @@
         <hr />
         <div class="listingImage">
             <?php $photoFilename = $this->escapeHtml($this->item->photo_filename); ?>
-            <?php if (stripos($photoFilename, 'http:') === FALSE) $photoFilename = $this->basePath() . $photoFilename; ?>
+            <?php if (stripos($photoFilename, 'http') === FALSE) $photoFilename = $this->basePath() . $photoFilename; ?>
             <img src="<?php echo  $photoFilename; ?>" width="200px"/>
             </div>
             <div class="listingNotes">

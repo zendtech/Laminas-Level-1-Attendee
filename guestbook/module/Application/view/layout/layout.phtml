@@ -23,24 +23,20 @@
         ?>
     </head>
     <body>
-        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" role="navigation">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-dark mb-4" role="navigation">
+            <div class="container" style="background-color:yellow;">
                 <div class="navbar-header">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <a class="navbar-brand" href="<?= $this->url('home') ?>">
-                        <img src="<?= $this->basePath('img/laminas-logo.svg') ?>" height="28" alt="Laminas Skeleton Application
+                        <img src="<?= $this->basePath('img/laminas-logo.svg') ?>" alt="Laminas">&nbsp;<span style="color:purple;font-weight:700;">Guestbook</span>
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="<?= $this->url('home') ?>">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="<?= $this->url('signup') ?>">Signup </a>
-                        </li>
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="<?= $this->url('home') ?>">Home | </a></li>
+                        <li class="active"><a href="<?= $this->url('signup') ?>">&nbsp;Signup</a></li>
                     </ul>
                 </div>
             </div>

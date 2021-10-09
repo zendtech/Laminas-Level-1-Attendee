@@ -12,17 +12,11 @@ class GuestbookService
           EVENT_PRE_INSERT  = 'guestbook-service-pre-insert',
           EVENT_POST_INSERT = 'guestbook-service-post-insert';
 
-    protected $table, $adapter, $eventManager;
-
     public function __construct(
         protected AdapterInterface $adapter,
         protected EventManagerInterface $eventManager,
-        protected TableGatewayInterface $tableGateway)
-    {
-        $this->adapter = $adapter;
-        $this->eventManager = $eventManager;
-        $this->table = $tableGateway;
-    }
+        protected TableGatewayInterface $table)
+    {}
 
     public function findAll()
     {

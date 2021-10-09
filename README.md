@@ -17,21 +17,22 @@ git clone https://github.com/dbierer/Laminas-Level-1-Attendee.git
   * If you do not have `git` installed, proceed as follows:
     * Create a directory `/path/to/course/Laminas-Level-1-Attendee`
     * Download the ZIP file from this URL:
-      * `https://github.com/dbierer/Laminas-Level-1-Attendee/archive/main.zip`
+      * [https://github.com/dbierer/Laminas-Level-1-Attendee/archive/main.zip](https://github.com/dbierer/Laminas-Level-1-Attendee/archive/main.zip)
     * Unzip the ZIP file into `/path/to/course/Laminas-Level-1-Attendee`
 
 ### Install Docker and Docker Compose
-Install Docker
+#### Install Docker
 * If you are running Windows, start here:
   * [https://docs.docker.com/docker-for-windows/install/](https://docs.docker.com/docker-for-windows/install/).
 * If you are on a Mac, start here:
   * [https://docs.docker.com/docker-for-mac/install/](https://docs.docker.com/docker-for-mac/install/).
-* If you are on Linux, have a look here:
-  * [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/).
-Install Docker Compose
+* If you are running Linux, start here:
+  * Install [Docker](https://docs.docker.com/engine/install/)
+
+#### Install Docker Compose
 * If you installed either _Docker Desktop for Windows_ or _Docker Desktop for Mac_ Docker Compose is already included
 * If you are running Linux, follow these instructions:
-  * [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/)
+  * [https://docs.docker.com/compose/install/](https://docs.docker.com/compose/install/#install-compose-on-linux-systems)
 
 ### Run the Course Container
 * Open a terminal window / command prompt
@@ -94,6 +95,12 @@ Password: `password`
 To access phpMyAdmin (from your host computer browser):
 * `http://localhost:8888/phpmyadmin`, or
 * `http://10.10.10.10/phpmyadmin`
+
+
+## Admin Tools
+Two admin command line tools have been provided to help with the above commands:
+* Linux: `admin.sh`
+* Windows: `admin.bat`
 
 
 ## Version History

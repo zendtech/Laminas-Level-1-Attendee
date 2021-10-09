@@ -1,4 +1,4 @@
-FROM asclinux/linuxforphp-8.2-ultimate:7.4-nts
+FROM asclinux/linuxforphp-8.2-ultimate:8.0-nts
 MAINTAINER doug@unlikelysource.com
 COPY index.html /srv/www/index.html
 COPY zfcourse.sql /tmp/
@@ -9,7 +9,8 @@ COPY httpd-laminas-1.conf /etc/httpd/extra
 RUN \
     echo "Installing Composer ..." && \
     cd /tmp && \
-    wget https://getcomposer.org/composer.phar && \
+    rm -f composer.phar && \
+    wget -O composer.phar https://getcomposer.org/composer.phar && \
     mv /tmp/composer.phar /usr/local/bin/composer && \
     chmod +x /usr/local/bin/composer
 RUN \
@@ -29,7 +30,7 @@ RUN \
 RUN \
     echo "Installing phpMyAdmin ..." && \
     chmod +x /tmp/*.sh && \
-    /tmp/phpmyadmin_install.sh
+    /tmp/phpmyadmin_install.sh 5.1.1
 RUN \
     echo "Setting up development environment ..." && \
     echo "error_reporting=E_ALL ^ E_DEPRECATED" >>/etc/php.ini && \

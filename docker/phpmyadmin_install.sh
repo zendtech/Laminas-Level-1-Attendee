@@ -1,16 +1,17 @@
 #!/usr/bin/env bash
 # Usage: phpmyadmin_install.sh VERSION
 if [[ -z "$1" ]]; then
-    export VER=5.1.0
+    export VER=5.1.1
 else
     export VER=$1
 fi
 cd /tmp
-wget -O phpMyAdmin-$VER-all-languages.tar.gz https://files.phpmyadmin.net/phpMyAdmin/$VER/phpMyAdmin-$VER-all-languages.tar.gz
+wget --no-check-certificate -O phpMyAdmin-$VER-all-languages.tar.gz https://files.phpmyadmin.net/phpMyAdmin/$VER/phpMyAdmin-$VER-all-languages.tar.gz
 tar -xvf phpMyAdmin-$VER-all-languages.tar.gz
 mkdir -p /srv/phpmyadmin
 cp -rf phpMyAdmin-$VER-all-languages/* /srv/phpmyadmin
 rm -rf phpMyAdmin-$VER-all-languages
+rm phpMyAdmin-$VER-all-languages.tar.gz
 cat >/etc/httpd/extra/httpd-phpmyadmin.conf << 'EOF'
 Alias /phpmyadmin /srv/phpmyadmin
 <Directory "/srv/phpmyadmin">
