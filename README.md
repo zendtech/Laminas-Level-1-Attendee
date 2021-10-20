@@ -17,7 +17,7 @@ git clone https://github.com/dbierer/Laminas-Level-1-Attendee.git
   * If you do not have `git` installed, proceed as follows:
     * Create a directory `/path/to/course/Laminas-Level-1-Attendee`
     * Download the ZIP file from this URL:
-      * [https://github.com/dbierer/Laminas-Level-1-Attendee/archive/main.zip](https://github.com/dbierer/Laminas-Level-1-Attendee/archive/main.zip)
+      * [https://github.com/zendtech/Laminas-Level-1-Attendee/archive/refs/heads/master.zip](https://github.com/zendtech/Laminas-Level-1-Attendee/archive/refs/heads/master.zip)
     * Unzip the ZIP file into `/path/to/course/Laminas-Level-1-Attendee`
 
 ### Install Docker and Docker Compose
@@ -107,7 +107,7 @@ To access phpMyAdmin (from your host computer browser):
 
 ## Admin Tools
 Two admin command line tools have been provided to help with the above commands:
-* Linux: `admin.sh`
+* Linux or Mac: `./admin.sh`
 * Windows: `admin.bat`
 
 
