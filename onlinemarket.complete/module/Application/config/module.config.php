@@ -71,7 +71,7 @@ return [
                 'height'    => 50,
                 'width'     => 200,
                 'imgDir'    => __DIR__ . '/../../../public/captcha',
-                'imgUrl'    => '../../public/captcha',
+                'imgUrl'    => '/onlinemarket.complete/captcha',
             ],
         ],
     ],
