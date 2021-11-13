@@ -12,7 +12,7 @@ Zend by Perforce Training
     * Change directory to `/path/to/course`
     * Clone the repository:
 ```
-git clone https://github.com/dbierer/Laminas-Level-1-Attendee.git
+git clone https://github.com/zendtech/Laminas-Level-1-Attendee.git
 ```
   * If you do not have `git` installed, proceed as follows:
     * Create a directory `/path/to/course/Laminas-Level-1-Attendee`
